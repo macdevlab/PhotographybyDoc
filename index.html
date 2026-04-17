@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doc Photo Shop — Photography by Sonya Samuel</title>
+  <meta name="description" content="Honest, warm photography for weddings, portraits and events. Based in London, available throughout the UK." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #2a1f15;
+      background: #ffffff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ---- NAV ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 48px;
+      border-bottom: 0.5px solid #e8ddd0;
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: #2a1f15;
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+    .logo-by {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #a89078;
+      margin-top: 5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      color: #4a3a2a;
+      text-transform: uppercase;
+      align-items: center;
+    }
+    .nav-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: #8a5e3a; }
+    .nav-cta {
+      background: #2a1f15;
+      color: #ffffff !important;
+      padding: 10px 20px;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: #4a3a2a !important; color: #ffffff !important; }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      min-height: 620px;
+      background-image: linear-gradient(rgba(30, 20, 10, 0.4), rgba(30, 20, 10, 0.55)), url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px;
+    }
+    .hero-content { position: relative; color: #ffffff; z-index: 1; text-align: center; max-width: 640px; }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.95;
+      margin-bottom: 26px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 26px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.95;
+      max-width: 460px;
+      margin: 0 auto 34px;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+    }
+    .btn-light {
+      display: inline-block;
+      padding: 14px 34px;
+      background: #ffffff;
+      color: #2a1f15;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .btn-light:hover { transform: translateY(-2px); }
+
+    /* ---- SECTION INTRO ---- */
+    .section-intro {
+      padding: 88px 40px 44px;
+      text-align: center;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #a89078;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #2a1f15;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #6a5640;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ---- SERVICES ---- */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 0 6px;
+    }
+    .service {
+      position: relative;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: flex-end;
+      padding: 32px;
+      color: #ffffff;
+      transition: transform 0.3s;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+    .service::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(20,12,5,0.85) 100%);
+      transition: background 0.3s;
+    }
+    .service:hover { transform: translateY(-4px); }
+    .service:hover::before { background: linear-gradient(to bottom, rgba(0,0,0,0.1) 20%, rgba(20,12,5,0.9) 100%); }
+    .service > div { position: relative; z-index: 1; }
+    .service-1 { background-image: url('https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&q=80&auto=format&fit=crop'); }
+    .service-2 { background-image: url('https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&q=80&auto=format&fit=crop'); }
+    .service-3 { background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&q=80&auto=format&fit=crop'); }
+    .service-num {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      font-size: 13px;
+      opacity: 0.95;
+      line-height: 1.55;
+      margin-bottom: 18px;
+    }
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.5px solid rgba(255,255,255,0.4);
+      padding-top: 14px;
+    }
+    .service-price {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ---- TESTIMONIAL ---- */
+    .testimonial {
+      padding: 80px 40px;
+      text-align: center;
+      background: #faf4ea;
+    }
+    .testimonial-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-style: italic;
+      color: #4a3a2a;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 24px;
+      font-weight: 400;
+    }
+    .testimonial-attr {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #a89078;
+    }
+
+    /* ---- ABOUT ---- */
+    .about {
+      padding: 88px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .about-image {
+      aspect-ratio: 4/5;
+      background-image: url('https://images.unsplash.com/photo-1554151228-14d9def656e4?w=700&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 400;
+      color: #2a1f15;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .about-text {
+      font-size: 14px;
+      line-height: 1.85;
+      color: #4a3a2a;
+      margin-bottom: 18px;
+    }
+    .btn-outline {
+      display: inline-block;
+      padding: 13px 30px;
+      border: 0.5px solid #2a1f15;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2a1f15;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: #2a1f15; color: #ffffff; }
+
+    /* ---- RECENT WORK ---- */
+    .recent {
+      padding: 72px 40px;
+      background: #faf4ea;
+    }
+    .recent-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+    .recent-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .recent-tile {
+      aspect-ratio: 1/1;
+      transition: transform 0.3s;
+      background-size: cover;
+      background-position: center;
+    }
+    .recent-tile:hover { transform: scale(1.02); }
+    .r1 { background-image: url('https://images.unsplash.com/photo-1529636798458-92182e662485?w=500&q=80&auto=format&fit=crop'); }
+    .r2 { background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&q=80&auto=format&fit=crop'); }
+    .r3 { background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=500&q=80&auto=format&fit=crop'); }
+    .r4 { background-image: url('https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=500&q=80&auto=format&fit=crop'); }
+
+    /* ---- CTA BLOCK ---- */
+    .cta-block {
+      padding: 96px 40px;
+      text-align: center;
+      background-image: linear-gradient(rgba(20, 14, 8, 0.85), rgba(20, 14, 8, 0.9)), url('https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      color: #ffffff;
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 22px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-text {
+      font-size: 14px;
+      line-height: 1.75;
+      opacity: 0.92;
+      max-width: 480px;
+      margin: 0 auto 34px;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #1a1208;
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8a7560;
+    }
+    .footer a { color: #8a7560; text-decoration: none; margin-left: 24px; transition: color 0.2s; }
+    .footer a:hover { color: #e4c8a4; }
+    .photo-credit {
+      text-align: center;
+      padding: 16px 24px;
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: #6a5640;
+      background: #1a1208;
+      border-top: 0.5px solid #2a1f15;
+      text-transform: uppercase;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .nav { padding: 18px 24px; }
+      .nav-links { gap: 16px; font-size: 11px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { min-height: 500px; padding: 60px 24px; }
+      .hero-title { font-size: 40px; }
+      .section-intro { padding: 60px 24px 32px; }
+      .section-title { font-size: 28px; }
+      .services { grid-template-columns: 1fr; gap: 6px; padding: 0 6px; }
+      .service { aspect-ratio: 16/10; }
+      .about { grid-template-columns: 1fr; gap: 32px; padding: 60px 24px; }
+      .about-title { font-size: 30px; }
+      .recent-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-block { padding: 64px 24px; }
+      .cta-title { font-size: 32px; }
+      .footer {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        padding: 24px;
+      }
+      .footer a { margin: 0 12px; }
+      .testimonial-quote { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div>
+      <div class="logo-name serif">Doc Photo Shop</div>
+      <div class="logo-by">by Sonya Samuel</div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Weddings</a>
+      <a href="#services">Portraits</a>
+      <a href="#services">Events</a>
+      <a href="#about">About</a>
+      <a href="#services">Investment</a>
+      <a href="#contact" class="nav-cta">Enquire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Weddings · Portraits · Events</div>
+      <h1 class="hero-title serif">The moments you'll want to hold onto.</h1>
+      <p class="hero-sub">Honest, warm photography for the days that matter most. Based in London, available throughout the UK.</p>
+      <a href="#contact" class="btn-light">Check availability</a>
+    </div>
+  </section>
+
+  <!-- SERVICES INTRO -->
+  <section class="section-intro" id="services">
+    <div class="section-eyebrow">What I do</div>
+    <h2 class="section-title serif">Three ways we can work together</h2>
+    <p class="section-desc">Every session is shaped around you — these are my three main offerings, each priced transparently so you know where you stand.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="service service-1">
+      <div>
+        <div class="service-num">Service 01</div>
+        <div class="service-name serif">Weddings</div>
+        <div class="service-desc">Full-day storytelling, from the quiet morning to the last dance.</div>
+        <div class="service-meta">
+          <div class="service-price">From £1,850</div>
+          <div>→</div>
+        </div>
+      </div>
+    </div>
+    <div class="service service-2">
+      <div>
+        <div class="service-num">Service 02</div>
+        <div class="service-name serif">Portraits</div>
+        <div class="service-desc">Family, maternity, newborn and personal branding sessions.</div>
+        <div class="service-meta">
+          <div class="service-price">From £295</div>
+          <div>→</div>
+        </div>
+      </div>
+    </div>
+    <div class="service service-3">
+      <div>
+        <div class="service-num">Service 03</div>
+        <div class="service-name serif">Events</div>
+        <div class="service-desc">Parties, christenings, corporate gatherings and milestone celebrations.</div>
+        <div class="service-meta">
+          <div class="service-price">From £450</div>
+          <div>→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="testimonial">
+    <p class="testimonial-quote serif">"Sonya has a gift for catching the in-between moments — the ones you didn't know were happening but now can't imagine your album without."</p>
+    <div class="testimonial-attr">— Rachel &amp; Tom · married September 2025</div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-image"></div>
+    <div>
+      <div class="section-eyebrow" style="text-align: left;">Meet Sonya</div>
+      <h2 class="about-title serif">Hi, I'm Sonya. I photograph the real stuff.</h2>
+      <p class="about-text">I've spent the last eight years behind a camera at weddings, in family kitchens, and at events across London and the Home Counties. My approach is warm, unhurried, and documentary at heart.</p>
+      <p class="about-text">I'd rather catch your grandma laughing than line everyone up against a wall — so if that sounds like your kind of photography, we'll get on.</p>
+      <a href="#about" class="btn-outline">Read more about me</a>
+    </div>
+  </section>
+
+  <!-- RECENT WORK -->
+  <section class="recent">
+    <div class="recent-header">
+      <div class="section-eyebrow">Recent work</div>
+      <h2 class="section-title serif" style="font-size: 28px;">A glimpse of the last few months</h2>
+    </div>
+    <div class="recent-grid">
+      <div class="recent-tile r1"></div>
+      <div class="recent-tile r2"></div>
+      <div class="recent-tile r3"></div>
+      <div class="recent-tile r4"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-block" id="contact">
+    <div class="section-eyebrow" style="color: rgba(255,255,255,0.7);">Let's talk</div>
+    <h2 class="cta-title serif">Planning a wedding, shoot, or celebration?</h2>
+    <p class="cta-text">Tell me a little about what you have in mind and I'll come back to you within two working days.</p>
+    <a href="mailto:hello@docphotoshop.com" class="btn-light">Start an enquiry</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© Sonya Samuel 2026 · Doc Photo Shop</div>
+    <div>
+      <a href="#">Instagram</a>
+      <a href="#">Pinterest</a>
+      <a href="mailto:hello@docphotoshop.com">hello@docphotoshop.com</a>
+    </div>
+  </footer>
+
+  <div class="photo-credit">
+    Demo photography sourced from Unsplash (free to use) · All images to be replaced with Sonya's own work
+  </div>
+
+  <script>
+    // Graceful fallback if any background images fail to load
+    document.addEventListener('DOMContentLoaded', () => {
+      const fallbacks = {
+        '.hero': 'linear-gradient(135deg, #e4c8a4 0%, #c4a07a 40%, #8a5e3a 100%)',
+        '.service-1': 'linear-gradient(160deg, #e4c8a4, #7a4a28)',
+        '.service-2': 'linear-gradient(160deg, #c4a07a, #4a2818)',
+        '.service-3': 'linear-gradient(160deg, #8a5e3a, #1f1208)',
+        '.about-image': 'linear-gradient(160deg, #d4b088, #5a3820)',
+        '.r1': 'linear-gradient(160deg, #c4a484, #6a4828)',
+        '.r2': 'linear-gradient(180deg, #e4c8a4, #8a6844)',
+        '.r3': 'linear-gradient(200deg, #a88868, #4a2818)',
+        '.r4': 'linear-gradient(140deg, #d4b088, #2a1f15)',
+        '.cta-block': 'linear-gradient(135deg, #2a1f15 0%, #1a1208 100%)'
+      };
+      Object.entries(fallbacks).forEach(([selector, gradient]) => {
+        const el = document.querySelector(selector);
+        if (!el) return;
+        const bg = getComputedStyle(el).backgroundImage;
+        const urlMatch = bg.match(/url\(["']?([^"')]+)["']?\)/);
+        if (urlMatch) {
+          const img = new Image();
+          img.onerror = () => { el.style.backgroundImage = gradient; };
+          img.src = urlMatch[1];
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
